@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}Contacts{% endblock title %}
+
+{% block body %}
+<div class="position-relative" style="height:850px; background: url('/static/assets/ice2.jpeg') no-repeat center center/cover;">
+    <!-- Transparent Form Section -->
+    <div class="position-absolute top-50 end-0 translate-middle-y p-5" 
+         style="background-color: rgba(46, 45, 45, 0.8); border-radius: 15px; max-width: 600px;height:700px; width: 100%; margin-right: 2rem;">
+        <h2 class="mb-2 text-center" style="color:white">Contact Us</h2>
+        <form method="post" action="/contact" >
+            {% csrf_token %}
+        
+            <!-- Name Field -->
+            <div class="mb-3">
+                <label for="name" class="form-label" style="color:white">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
+        
+            <!-- Email Field -->
+            <div class="mb-3">
+                <label for="email" class="form-label" style="color:white">Email Address</label>
+                <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter your email" required>
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+        
+            <!-- Phone Field -->
+            <div class="mb-3">
+                <label for="phone" class="form-label" style="color:white">Phone Number</label>
+                <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter your phone number" pattern="[0-9]{10}" required>
+                <div class="form-text">Please enter a 10-digit phone number.</div>
+            </div>
+        
+            <!-- Description Field -->
+            <div class="mb-3">
+                <label for="description" class="form-label" style="color:white">Description</label>
+                <textarea class="form-control" id="description" name="description" rows="4" placeholder="Enter your message here..." required></textarea>
+            </div>
+        
+            <!-- Date Field -->
+            <div class="mb-3">
+                <label for="date" class="form-label" style="color:white">Date</label>
+                <input type="date" class="form-control" id="date" name="date" required>
+            </div>
+        
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary w-100">Submit</button>
+        </form>
+        
+    </div>
+</div>
+{% endblock body %}
+ 
